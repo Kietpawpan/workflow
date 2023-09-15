@@ -1,0 +1,76 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./e-Request _ User&#39;s Guide_files/book.css">
+<title>e-Request | Workflow</title>
+	<script src="underscore-min.js"></script>
+	<script src="raphael-min.js"></script>
+	<script src="sequence-diagram-min.js">	</script>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="container">
+
+        <section class="open-book">
+            <header>
+                <h1>ระบบยื่นคำขอข้อมูลข่าวสารของราชการ (e-Request)</h1>
+                <h6>MNRE-SLC-009</h6>
+            </header>
+            <article>
+    <h2 class="chapter-title">คู่มือผู้ควบคุมระบบ<br> e-Request</h2>
+
+<p>
+ระบบรับคำขอข้อมูลข่าวสารของกระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม (e-Request) ใช้รับคำขอข้อมูลข่าวสารจากผู้มีสิทธิ์ขอข้อมูลข่าวสารจากหน่วยงานของรัฐ ตามพระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. 2540 ที่ยื่นคำขอผ่านช่องทางอิเล็กทรอนิกส์ (อีเมล) ของหน่วยงานที่เข้าร่วมโครงการนี้</p><br>
+<dd>
+<strong>วิธีใช้งาน</strong>
+</dd>
+
+<p>
+</p><p><b>ขั้นตอนการดำเนินงาน</b> เป็นไปตาม sequence diagram เริ่มจากผู้ขอยื่นคำขอข้อมูลข่าวสารผ่านระบบ 	e-Request จะมีอีเมลส่งคำขอนั้นไปยังหน่วยงานที่ครอบครองหรือควบคุมดูแลข้อมูลข่าวสารตามที่ร้องขอ และระบบจะส่งสำเนาอีเมลถึงศูนย์บริการร่วมกระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม (ศบร.ทส.) อีกทางหนึ่ง เจ้าหน้าที่สารบรรณที่รับผิดชอบต้องตรวจสอบอีเมลของหน่วยงานทุกวัน ควรกำหนดความถี่ให้เหมาะสม อาทิ วันละ 3 เวลา เช่น เวลา 09:00 น. 11:00 น. และ 15:00 น. เป็นต้น แล้วเสนอเรื่องตามขั้นตอน เมื่อมีความคืบหน้า ให้เจ้าหน้าที่ผู้ประสานงาน แจ้งสถานะล่าสุดไปยัง ศบร.ทส. ทางอีเมล servicelinkcenter@mnre.go.th โดยส่งต่อ (forward) อีเมลของผู้ขอ พร้อมข้อความสถานะล่าสุด (ได้รับคำขอ / ตรวจสอบข้อมูล / อยู่ระหว่างพิจารณา / พิจารณาแล้วมีคำสั่งเปิดเผย/ไม่เปิดเผย เพราะเหตุใด / หรือ แจ้งผลการพิจารณาให้ผู้ขอทราบแล้ว) </p><p>เมื่อได้รับแจ้งความคืบหน้าแล้ว ให้ ศบร.ทส. เร่งปรับปรุงข้อมูลในระบบ e-Tracking ภายในวันที่ได้รับแจ้ง เพื่อให้พร้อมสำหรับการติดตามความคืบหน้า โดยให้ผู้ยื่นคำขอ แสดงตนผ่านบัญชีไลน์ GECC สป.ทส. ก่อนเข้าสู่หน้าต่างโปรแกรม e-Tracking เพื่อกรอกรหัสและเข้าถึงข้อมูลสถานะคำขอ
+
+
+<pre id="txt" hidden>
+title: MNRE Information Service Workflow
+Customer->Department:Send e-mail
+note right of Department: Check
+Customer-->>Ministry: CC the e-mail
+note right of Ministry: Check 
+note right of Ministry: Update DB
+note right of Department: Consider
+Department->Ministry: Report
+note right of Ministry: Update DB
+Customer-->>Ministry: Check the progress
+Ministry->Customer: Report
+Customer->Customer: (:
+</pre>
+
+<br>
+<dd>
+<div id="diagram"></div>
+</dd>
+<script>
+	var diagram = Diagram.parse(document.getElementById('txt').
+innerText)
+
+diagram.drawSVG('diagram',{theme:'simple'})
+</script>
+
+<br>
+<center>****************</center><br>
+
+
+
+            </article>
+            <footer>
+                <ol id="page-numbers">
+                    <li>1</li>
+                    <li>2</li>
+                </ol>
+            </footer>
+        </section>
+
+    </div>
+</div>
+
+
+</body></html>
