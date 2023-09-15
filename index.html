@@ -32,16 +32,18 @@
 <pre id="txt" hidden>
 title: MNRE Information Service Workflow
 Customer->Department:Send e-mail
-note right of Department: Check
 Customer-->>Ministry: CC the e-mail
-note right of Ministry: Check 
-note right of Ministry: Update DB
-note right of Department: Consider
-Department->Ministry: Report
-note right of Ministry: Update DB
+note over Department, Ministry: Check e-mail
+note over Ministry: Update DB
+Department-->>Ministry: Report
+note over Ministry: Update DB
+note over Department: Consider
+Department-->>Ministry: Report
+note over Ministry: Update DB
 Customer-->>Ministry: Check the progress
-Ministry->Customer: Report
-Customer->Customer: (:
+Ministry-->>Customer: Report
+Department->Customer: Notify
+Customer-->>Customer: (:
 </pre>
 
 <br>
